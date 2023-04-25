@@ -1,0 +1,16 @@
+SELECT COUNT(*) AS count_films_above_avg_length
+FROM film
+WHERE length > (SELECT AVG(length) FROM film);
+SELECT COUNT(*) AS count_films_with_highest_rental_rate
+FROM film
+WHERE rental_rate = (SELECT MAX(rental_rate) FROM film);
+SELECT title, rental_rate, replacement_cost
+FROM film
+WHERE rental_rate = (SELECT MIN(rental_rate) FROM film)
+AND replacement_cost = (SELECT MIN(replacement_cost) FROM film);
+SELECT customer.first_name, customer.last_name, COUNT(payment.customer_id) AS total_transactions
+FROM payment
+JOIN customer ON customer.customer_id = payment.customer_id
+GROUP BY payment.customer_id
+ORDER BY total_transactions DESC
+LIMIT 10;

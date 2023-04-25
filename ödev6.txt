@@ -1,0 +1,33 @@
+-- actor tablosunda bulunan first_name sütununu sıralama
+SELECT first_name FROM actor;
+
+-- customer tablosunda bulunan first_name sütununu sıralama
+SELECT first_name FROM customer;
+
+-- actor ve customer tablolarında bulunan kesişen first_name verilerini sıralama
+SELECT first_name FROM actor
+INTERSECT
+SELECT first_name FROM customer;
+
+-- actor tablosundaki ancak customer tablosunda olmayan first_name verilerini sıralama
+SELECT first_name FROM actor
+EXCEPT
+SELECT first_name FROM customer;
+
+-- tekrar eden verileri de dahil ederek ilk 3 sorguyu yeniden yazalım
+
+-- actor tablosunda bulunan first_name sütununu sıralama
+SELECT first_name FROM actor;
+
+-- customer tablosunda bulunan first_name sütununu sıralama
+SELECT first_name FROM customer;
+
+-- actor ve customer tablolarında bulunan kesişen first_name verilerini sıralama
+SELECT first_name FROM actor
+INTERSECT
+SELECT first_name FROM customer;
+
+-- actor tablosundaki ancak customer tablosunda olmayan first_name verilerini sıralama
+SELECT first_name FROM actor
+EXCEPT
+SELECT first_name FROM customer;
